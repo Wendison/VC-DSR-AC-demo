@@ -18,29 +18,30 @@ audio {
 <body>
     <h2>Audio samples: Improved Voice conversion for dysarthric and L2 speech</h2>
     <p><strong>Authors: </strong> Disong Wang, Lifa Sun, Xixin Wu, Xunying Liu and Helen Meng</p>
-    <!--<p><strong>Abstract: </strong> Though significant progress has been achieved for the voice conversion (VC) of standard speech, VC for non-standard speech, e.g., dysarthric and second-language (L2) speech, is still challenging. Motivated by our previous work applying the end-to-end VC for tackling the dysarthric speech reconstruction and accent conversion tasks, we propose an improved VC system. First, a speech-encoder strives to extract robust phoneme embeddings from the non-standard speech. Second, the phoneme duration and logarithmic fundamental frequency (lf0) predictors are introduced to predict standard phoneme durations and lf0 based on the phoneme embeddings. Third, a multi-speaker conversion model takes the predicted standard lf0 and phoneme embeddings expanded by predicted standard durations as inputs to generate the standard speech, conditioned on the target speaker embedding. Due to the explicit modelling of VC process, speaker encoding and adaptation can be performed to control the speaker identity of the converted speech with high naturalness and intelligibility. Extensive experiments verify the effectiveness of the proposed methods to significantly reduce the dysarthric and non-native-accented pronunciation patterns for dysarthric and L2 speakers, respectively.
--->
+    <p><strong>Abstract: </strong> Though significant progress has been achieved for the voice conversion (VC) of standard speech, VC for non-standard speech, e.g., dysarthric and second-language (L2) speech, is still challenging. Motivated by our previous work applying the end-to-end VC for tackling the dysarthric speech reconstruction and accent conversion tasks, we propose an improved VC system. First, a speech-encoder strives to extract robust phoneme embeddings from the non-standard speech. Second, the phoneme duration and logarithmic fundamental frequency (lf0) predictors are introduced to predict standard phoneme durations and lf0 based on the phoneme embeddings. Third, a multi-speaker conversion model takes the predicted standard lf0 and phoneme embeddings expanded by predicted standard durations as inputs to generate the standard speech, conditioned on the target speaker embedding. Due to the explicit modelling of VC process, speaker encoding and adaptation can be performed to control the speaker identity of the converted speech with high naturalness and intelligibility. Extensive experiments verify the effectiveness of the proposed methods to significantly reduce the dysarthric and non-native-accented pronunciation patterns for dysarthric and L2 speakers, respectively.
+
   
   <hr>
+    <h2>VC performance of different methods</h2>
+    <li>System comparison:</li>
+    <ul>
+        <li><strong>Original:</strong> Original dysarthric or L2 speech.</li>
+        <li><strong>E2E-VC:</strong> End-to-end VC for non-standard speech.</li>
+        <li><strong>SE-CM (proposed):</strong> Multi-speaker conversion model by using the speaker encoding to control the speaker identity of the converted speech.</li>
+        <li><strong>SA-CM (proposed):</strong> Multi-speaker conversion model by using the learned speaker embedding to control the speaker identity of the converted speech.</li>
+    </ul>
 
-    <h2>System comparison</h2>
-    <li><strong>Original:</strong> Original dysarthric or L2 speech.</li>
-    <li><strong>E2E-VC:</strong> End-to-end VC for non-standard speech.</li>
-    <li><strong>SE-CM (proposed):</strong> Multi-speaker conversion model by using the speaker encoding to control the speaker identity of the converted speech.</li>
-    <li><strong>SA-CM (proposed):</strong> Multi-speaker conversion model by using the learned speaker embedding to control the speaker identity of the converted speech.</li>
-
-  <hr>
-  
+    <li>Two speakers are used for experiments:</li>
+    <ul>
+        <li><strong>M07:</strong> a dysarthric speaker has moderate severe dysarthria with the speech having low intelligibility, selected from UASpeech dataset</li>
+        <li><strong>LXC:</strong> a non-native English speaker with obvious Chinese accent, selected from L2-ARCTIC dataset, a</li>
+    </ul>
     <!--<h2>Some additional observations and analysis</h2>
     <li><strong>(1)</strong> The proposed method can effectively remove incorrect articulation repetitions, e.g., M05 speaker said 'whiskey key' for 'whiskey' and 'ab ablutions' for 'ablutions', the reconstructed speech has the correct articulations 'whiskey' and 'ablutions', please listen to <a href="#eg1">M05-No.2</a> and <a href="#eg2">M05-No.4</a> for more details.</li>
     <li><strong>(2)</strong> Compared with the ASR-TTS, the proposed method preserves more similiar content with the original speech, please listen to <a href="#eg3">M07-No.8</a>, <a href="#eg4">M07-No.10</a>, <a href="#eg5">F03-No.5</a> and <a href="#eg6">F03-No.9</a> for more details. For ASR-TTS, when the ASR results are wrong, the TTS generates the speech with totally wrong content. However, the proposed method can extract and use the apropriate linguistic representations to generate the speech with more original content preservations, thus the recontructed speech sounds more like original content.</li>
   -->
-  <hr>
 
-    <h2>VC performance of different methods</h2>
-    <li>4 dysarthric speakers from 4 groups with different speech intelligibility are used for experiments: F05(high), M05(mid), M07(low), F03(very low). 'F' and 'M' denote female and male respectively.</li>
-    <li>The proposed method can be extended to other conversion task, such as speaker identity, emotion, speaking style and accent conversion, etc. </li> 
-    <li>By replacing the proposed single-speaker TTS with multi-speaker TTS, the proposed system can generate the high-quality speech that preserves both speaker identity and content, which is our future work.</li>
+    
   
 
     <h3>M07 (dysarthric speaker):</h3>
