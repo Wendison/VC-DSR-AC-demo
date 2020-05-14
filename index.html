@@ -37,6 +37,11 @@ audio {
         <li><strong>M07:</strong> a dysarthric speaker has moderate severe dysarthria with the speech having low intelligibility, selected from UASpeech dataset.</li>
         <li><strong>LXC:</strong> a non-native English speaker with obvious Chinese accent, selected from L2-ARCTIC dataset.</li>
     </ul>
+  
+    <li>Additional observations:</li>
+    <ul>
+         <li>Speaker encoder may produce insuffient speaker embeddings to capture speaker characteristics, especially for dysarthric speech, the gender of some converted voice is even changed, please listen to <a href="#eg1">M07-No.5</a> and <a href="#eg2">M07-No.7</a> of E2E-VC, and <a href="#eg3">M07-No.4</a> of Ada-CM for more details. On the contrary, the proposed speaker adaptation can achieve higher speaker similarity.</li>
+    </ul>
     <!--<h2>Some additional observations and analysis</h2>
     <li><strong>(1)</strong> The proposed method can effectively remove incorrect articulation repetitions, e.g., M05 speaker said 'whiskey key' for 'whiskey' and 'ab ablutions' for 'ablutions', the reconstructed speech has the correct articulations 'whiskey' and 'ablutions', please listen to <a href="#eg1">M05-No.2</a> and <a href="#eg2">M05-No.4</a> for more details.</li>
     <li><strong>(2)</strong> Compared with the ASR-TTS, the proposed method preserves more similiar content with the original speech, please listen to <a href="#eg3">M07-No.8</a>, <a href="#eg4">M07-No.10</a>, <a href="#eg5">F03-No.5</a> and <a href="#eg6">F03-No.9</a> for more details. For ASR-TTS, when the ASR results are wrong, the TTS generates the speech with totally wrong content. However, the proposed method can extract and use the apropriate linguistic representations to generate the speech with more original content preservations, thus the recontructed speech sounds more like original content.</li>
@@ -132,7 +137,7 @@ audio {
     </tr>
 
     <tr>
-      <td>4</td>
+      <td><div id="eg3">4</div></td>
       <td>
         <audio controls>
         <source src="./audios/systems_comparison/M07/Original/M07_B2_LU_M6_mel_UNIFORM.wav" type="audio/wav">
@@ -157,7 +162,7 @@ audio {
     </tr>
 
     <tr>
-      <td>5</td>
+      <td><div id="eg1">5</div></td>
       <td>
         <audio controls>
         <source src="./audios/systems_comparison/M07/Original/M07_B2_UW80_M6_mel_EMILIO.wav" type="audio/wav">
@@ -207,7 +212,7 @@ audio {
     </tr>
 
     <tr>
-      <td>7</td>
+      <td><div id="eg2">7</div></td>
       <td>
         <audio controls>
         <source src="./audios/systems_comparison/M07/Original/M07_B2_LA_M6_mel_ALPHA.wav" type="audio/wav">
