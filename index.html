@@ -16,9 +16,813 @@ audio {
 </style>
 </head>
 <body>
-    <h2>Audio samples: Explicit Prosody Modelling and Deep Speaker Embedding Learning for Non-standard Voice Conversion</h2>
-    <h2>Under construction :)</h2>  
-    
+    <h2>Audio samples: Explicit Prosodic Modelling and Deep Speaker Embedding Learning for Non-standard Voice Conversion</h2>
+    <p><strong>Authors: </strong> Disong Wang, Songxiang Liu, Lifa Sun, Xixin Wu, Xunying Liu and Helen Meng</p>
+    <p><strong>Abstract: </strong> Though significant progress has been made for the voice conversion (VC) of standard speech, VC for non-standard speech, e.g., dysarthric and second-language (L2) speech, remains a challenge, since it involves correcting for atypical prosody while maintaining speaker identity. To address this issue, we propose a VC system with explicit prosody modelling and deep speaker embedding (DSE) learning. First, a speech-encoder strives to extract robust phoneme embeddings from non-standard speech. Second, a prosody corrector takes in phoneme embeddings to infer standard phoneme duration and pitch values. Third, a conversion model takes phoneme embeddings and standard prosody features as inputs to generate the converted speech, conditioned on the target DSE that is learned via speaker encoder or speaker adaptation. Extensive experiments demonstrate that speaker encoder based conversion model can significantly reduce dysarthric and non-native pronunciation patterns to generate near-normal and near-native speech respectively, and speaker adaptation can achieve higher speaker similarity. </p>
+  
+  <hr style="height:3px;border:none;border-top:5px solid #555555;" />
+
+    <h2>VC performance of different methods</h2>
+    <li>System comparison:</li>
+    <ul>
+        <li><strong>Original:</strong> Original dysarthric or L2 speech.</li>
+        <li><strong>E2E-VC:</strong> End-to-end VC for non-standard speech.</li>
+        <li><strong>Enc-CM (proposed):</strong> Multi-speaker conversion model by using the deep speaker embedding (DSE) obtained from the speaker encoder to control the speaker identity.</li>
+        <li><strong>Ada-CM (proposed):</strong> Adapted conversion model by using the DSE obtained via speaker adaptation to control the speaker identity.</li>
+    </ul>
+
+    <li>Two speakers are used for experiments:</li>
+    <ul>
+        <li><strong>M05:</strong> a dysarthric speaker has moderate severe dysarthria with the speech having low intelligibility, the speaker is selected from UASpeech dataset.</li>
+        <li><strong>LXC:</strong> a non-native English speaker with obvious Chinese accent, the speaker is selected from L2-ARCTIC dataset.</li>
+    </ul>
+  
+
+
+    <h3>M05 (dysarthric speaker):</h3>
+    <table border="1">
+    <tr>
+      <th>No.</th>
+      <th>Original</th>
+      <th>E2E-VC</th>
+      <th>Enc-CM (proposed)</th>
+      <th>Ada-CM (proposed)</th>
+      <th>Text</th>
+    </tr>
+
+    <tr>
+       <td>1</td>
+       <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/Original/0.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/E2E-VC/0.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/Enc-CM/0.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/Ada-CM/0.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">backspace</td>
+       </tr>
+
+      <tr>
+       <td>2</td>
+       <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/Original/1.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/E2E-VC/1.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/Enc-CM/1.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/Ada-CM/1.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">paragraph</td>
+       </tr>
+
+      <tr>
+       <td>3</td>
+       <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/Original/2.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/E2E-VC/2.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/Enc-CM/2.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/Ada-CM/2.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">sentence</td>
+       </tr>
+
+      <tr>
+       <td>4</td>
+       <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/Original/3.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/E2E-VC/3.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/Enc-CM/3.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/Ada-CM/3.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">copy</td>
+       </tr>
+
+      <tr>
+       <td>5</td>
+       <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/Original/4.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/E2E-VC/4.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/Enc-CM/4.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/Ada-CM/4.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">upward</td>
+       </tr>
+
+      <tr>
+       <td>6</td>
+       <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/Original/5.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/E2E-VC/5.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/Enc-CM/5.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/Ada-CM/5.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">astounded</td>
+       </tr>
+
+      <tr>
+       <td>7</td>
+       <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/Original/6.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/E2E-VC/6.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/Enc-CM/6.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/Ada-CM/6.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">into</td>
+       </tr>
+
+      <tr>
+       <td>8</td>
+       <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/Original/7.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/E2E-VC/7.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/Enc-CM/7.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/M05/Ada-CM/7.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">find</td>
+    </tr>
+
+    </table>
+
+  <!-- LXC -->
+  <h3>LXC (L2 speaker):</h3>
+    <table border="1">
+    <tr>
+      <th>No.</th>
+      <th>Original</th>
+      <th>E2E-VC</th>
+      <th>Enc-CM (proposed)</th>
+      <th>Ada-CM (proposed)</th>
+      <th>Text</th>
+    </tr>
+
+    <tr>
+       <td>1</td>
+       <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/Original/0.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/E2E-VC/0.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/Enc-CM/0.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/Ada-CM/0.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">There was no forecasting this strange girl's processes.</td>
+       </tr>
+
+      <tr>
+       <td>2</td>
+       <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/Original/1.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/E2E-VC/1.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/Enc-CM/1.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/Ada-CM/1.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">It was more like sugar.</td>
+       </tr>
+
+      <tr>
+       <td>3</td>
+       <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/Original/2.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/E2E-VC/2.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/Enc-CM/2.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/Ada-CM/2.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">Without them he could not run his empire.</td>
+       </tr>
+
+      <tr>
+       <td>4</td>
+       <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/Original/3.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/E2E-VC/3.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/Enc-CM/3.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/Ada-CM/3.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">Bill lingered, contemplating his work with artistic appreciation.</td>
+       </tr>
+
+      <tr>
+       <td>5</td>
+       <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/Original/4.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/E2E-VC/4.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/Enc-CM/4.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/Ada-CM/4.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">Once the jews harp began emitting its barbaric rhythms, Michael was helpless.</td>
+       </tr>
+
+      <tr>
+       <td>6</td>
+       <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/Original/5.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/E2E-VC/5.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/Enc-CM/5.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/Ada-CM/5.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">Then you can arrange yourself comfortably among these robes in the bow.</td>
+       </tr>
+
+      <tr>
+       <td>7</td>
+       <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/Original/6.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/E2E-VC/6.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/Enc-CM/6.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/Ada-CM/6.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">How could I answer the question on the spur of the moment.</td>
+       </tr>
+
+      <tr>
+       <td>8</td>
+       <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/Original/7.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/E2E-VC/7.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/Enc-CM/7.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/systems-comparison/LXC/Ada-CM/7.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">They are not biologists nor sociologists.</td>
+    </tr>
+
+    </table>
+
+ 
+   <hr style="height:3px;border:none;border-top:5px solid #555555;" />
+
+    <h2>Impact of phoneme duration and F0</h2>
+    <li>Speech generation by the proposed Enc-CM with different combinations of phoneme durations and F0:</li>
+    <ul>
+      <li><strong>GD+GF</strong>: Ground-truth Duration + Ground-truth F0</li>
+      <li><strong>GD+PF</strong>: Ground-truth Duration + Predicted F0</li>
+      <li><strong>PD+PF</strong>: Predicted Duration + Predicted F0</li>
+    </ul>
+  
+
+    <h3>M05 (dysarthric speaker):</h3>
+    <table border="1">
+    <tr>
+      <th>No.</th>
+      <th>GD+GF</th>
+      <th>GD+PF</th>
+      <th>PD+PF</th>
+      <th>Text</th>
+    </tr>
+
+    <tr>
+       <td>1</td>
+       <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/M05/0/0.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/M05/1/0.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/M05/2/0.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">sugar</td>
+       </tr>
+
+      <tr>
+       <td>2</td>
+       <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/M05/0/1.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/M05/1/1.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/M05/2/1.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">delta</td>
+       </tr>
+
+      <tr>
+       <td>3</td>
+       <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/M05/0/2.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/M05/1/2.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/M05/2/2.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">into</td>
+       </tr>
+
+      <tr>
+       <td>4</td>
+       <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/M05/0/3.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/M05/1/3.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/M05/2/3.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">many</td>
+       </tr>
+
+      <tr>
+       <td>5</td>
+       <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/M05/0/4.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/M05/1/4.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/M05/2/4.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">watches</td>
+       </tr>
+
+      <tr>
+       <td>6</td>
+       <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/M05/0/5.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/M05/1/5.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/M05/2/5.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">yankee</td>
+       </tr>
+
+      <tr>
+       <td>7</td>
+       <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/M05/0/6.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/M05/1/6.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/M05/2/6.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">whiskey</td>
+       </tr>
+
+      <tr>
+       <td>8</td>
+       <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/M05/0/7.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/M05/1/7.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/M05/2/7.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">Juliet</td>
+    </tr>
+
+    </table>
+
+  <!-- LXC -->
+  <h3>LXC (L2 speaker):</h3>
+    <table border="1">
+    <tr>
+      <th>No.</th>
+      <th>GG</th>
+      <th>GP</th>
+      <th>PP</th>
+      <th>Text</th>
+    </tr>
+
+    <tr>
+       <td>1</td>
+       <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/LXC/0/0.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/LXC/1/0.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/LXC/2/0.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">Philip snatched at the letter which Gregson held out to him.</td>
+       </tr>
+
+      <tr>
+       <td>2</td>
+       <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/LXC/0/1.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/LXC/1/1.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/LXC/2/1.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">He also contended that better confidence was established by carrying no weapons.</td>
+       </tr>
+
+      <tr>
+       <td>3</td>
+       <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/LXC/0/2.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/LXC/1/2.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/LXC/2/2.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">It was over when he made his way through the ring of spectators.</td>
+       </tr>
+
+      <tr>
+       <td>4</td>
+       <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/LXC/0/3.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/LXC/1/3.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/LXC/2/3.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">There is no need of further detail, now -- for you can understand.</td>
+       </tr>
+
+      <tr>
+       <td>5</td>
+       <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/LXC/0/4.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/LXC/1/4.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/LXC/2/4.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">I want to die in it.</td>
+       </tr>
+
+      <tr>
+       <td>6</td>
+       <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/LXC/0/5.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/LXC/1/5.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/LXC/2/5.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">She was even more beautiful than when I saw her, before.</td>
+       </tr>
+
+      <tr>
+       <td>7</td>
+       <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/LXC/0/6.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/LXC/1/6.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/LXC/2/6.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">How does your wager look now.</td>
+       </tr>
+
+      <tr>
+       <td>8</td>
+       <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/LXC/0/7.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/LXC/1/7.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td>
+       <audio controls>
+       <source src="./audio/prosodic-modelling-effects/LXC/2/7.wav" type="audio/wav">
+       </audio>
+       </td>
+      <td align="center">Hardly were our plans made public before we were met by powerful opposition.</td>
+    </tr>
+
+    </table>   
+
     
        
 
