@@ -21,8 +21,19 @@ audio {
     <p><strong>Abstract: </strong> Though significant progress has been made for the voice conversion (VC) of standard speech, VC for non-standard speech, e.g., dysarthric and second-language (L2) speech, remains a challenge, since it involves correcting for atypical prosody while maintaining speaker identity. To address this issue, we propose a VC system with explicit prosody modelling and deep speaker embedding (DSE) learning. First, a speech-encoder strives to extract robust phoneme embeddings from non-standard speech. Second, a prosody corrector takes in phoneme embeddings to infer standard phoneme duration and pitch values. Third, a conversion model takes phoneme embeddings and standard prosody features as inputs to generate the converted speech, conditioned on the target DSE that is learned via speaker encoder or speaker adaptation. Extensive experiments demonstrate that speaker encoder based conversion model can significantly reduce dysarthric and non-native pronunciation patterns to generate near-normal and near-native speech respectively, and speaker adaptation can achieve higher speaker similarity. </p>
   
   <hr style="height:3px;border:none;border-top:5px solid #555555;" />
+  
+    <strong><p class="toc_title", style="font-size:30px">Contents</p></strong>
+      <div id="toc_container">
+         <ul>
+            <li><strong><a href="#comparison"><font size="5">1. VC performance of different methods</font></a></li></strong>
+            <li><strong><a href="#ablation"><font size="5">2. Impact of phoneme duration and F0</font></a></li></strong>
+         </ul>
+      </div>
 
-    <h2>VC performance of different methods</h2>
+  <hr style="height:3px;border:none;border-top:5px solid #555555;" />
+    <a name="comparison">
+    <h2>1. VC performance of different methods</h2>
+    </a>
     <li>System comparison:</li>
     <ul>
         <li><strong>Original:</strong> Original dysarthric or L2 speech.</li>
@@ -469,7 +480,9 @@ audio {
  
    <hr style="height:3px;border:none;border-top:5px solid #555555;" />
 
-    <h2>Impact of phoneme duration and F0</h2>
+    <a name="ablation">
+    <h2>2. Impact of phoneme duration and F0</h2>
+    </a>
     <li>Speech generation by the proposed Enc-CM with different combinations of phoneme durations and F0:</li>
     <ul>
       <li><strong>GD+GF</strong>: Ground-truth Duration + Ground-truth F0</li>
